@@ -4,12 +4,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MovieModel {
-    String original_title, poster_path, release_date;
+    String original_title, overview, poster_path, release_date;
     float vote_average;
 
     public MovieModel(String original_title, String overview, String poster_path, String release_date, float vote_average) {
         this.original_title = original_title;
-//        this.overview = overview;
+        this.overview = overview;
         this.poster_path = poster_path;
         this.release_date = release_date;
         this.vote_average = vote_average;
@@ -23,13 +23,13 @@ public class MovieModel {
         this.original_title = original_title;
     }
 
-//    public String getOverview() {
-//        return overview;
-//    }
-//
-//    public void setOverview(String overview) {
-//        this.overview = overview;
-//    }
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
 
     public String getPoster_path() {
         return poster_path;

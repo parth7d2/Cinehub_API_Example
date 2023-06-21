@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -30,13 +31,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.recycler_View);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        
         getJsonData();
 
-        customAdapter = new CustomAdapter(MainActivity.this, modelArrayList);
-        recyclerView.setAdapter(customAdapter);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                recyclerView = findViewById(R.id.recycler_View);
+                recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                customAdapter = new CustomAdapter(MainActivity.this, modelArrayList);
+                recyclerView.setAdapter(customAdapter);
+            }
+        }, 2000);
+
 
     }
 
@@ -55,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<JsonModel> call, Response<JsonModel> response) {
                 JsonModel model = response.body();
                 modelArrayList = model.getResults();
-//                Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_LONG).show();
             }
 
             @Override

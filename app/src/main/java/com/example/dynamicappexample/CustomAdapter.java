@@ -4,9 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,10 +40,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 //        holder.txt_SubTitleMovie.setText(modelArrayList.get(position).subTitle);
 
         holder.txt_TitleMovie.setText(modelArrayList.get(position).getOriginal_title());
-//        holder.txt_SubTitleMovie.setText(modelArrayList.get(position).getOverview());
-        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + modelArrayList.get(1).getPoster_path()).into(holder.img_MoviePoster);
-        holder.txt_date.setText(modelArrayList.get(position).getRelease_date());
-        holder.txt_rate.setText(String.valueOf(modelArrayList.get(position).getVote_average()));
+        holder.txt_SubTitleMovie.setText(modelArrayList.get(position).getOverview());
+        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + modelArrayList.get(position).getPoster_path()).into(holder.img_MoviePoster);
+        holder.txt_date_rate.setText(modelArrayList.get(position).getRelease_date() + " " + String.valueOf(modelArrayList.get(position).getVote_average()));
     }
 
     @Override
@@ -55,16 +52,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txt_TitleMovie,  txt_date, txt_rate;
+        TextView txt_TitleMovie, txt_SubTitleMovie, txt_date_rate, txt_rate;
         ImageView img_MoviePoster;
 
         public ViewHolder(View itemView){
             super(itemView);
             img_MoviePoster = itemView.findViewById(R.id.img_poster);
             txt_TitleMovie = itemView.findViewById(R.id.txt_Titlemovie);
-//            txt_SubTitleMovie = itemView.findViewById(R.id.txt_Subtitle_);
-            txt_date = itemView.findViewById(R.id.txt_date);
-            txt_rate = itemView.findViewById(R.id.txt_rate);
+            txt_SubTitleMovie = itemView.findViewById(R.id.txt_Subtitle_);
+            txt_date_rate = itemView.findViewById(R.id.txt_date_rate);
         }
 
 

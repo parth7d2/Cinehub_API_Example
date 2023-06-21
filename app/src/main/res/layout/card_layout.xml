@@ -27,17 +27,8 @@
         app:layout_constraintStart_toStartOf="parent"
        />
 
-<!--    <TextView-->
-<!--        android:id="@+id/txt_Subtitle_"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Movie_SubTitle"-->
-<!--        android:textSize="16sp"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/txt_Titlemovie"-->
-<!--        app:layout_constraintStart_toStartOf="parent"/>-->
-
     <TextView
-        android:id="@+id/txt_date"
+        android:id="@+id/txt_Subtitle_"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Movie_SubTitle"
@@ -46,13 +37,14 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/txt_rate"
+        android:id="@+id/txt_date_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Movie_SubTitle"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/txt_date"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Subtitle_"
         app:layout_constraintStart_toStartOf="parent"/>
+
 
 
 
